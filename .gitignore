@@ -2,3 +2,6 @@ empty.txt
 file.txt
 a.out
 gnlTester/
+files/
+gdbcmd*
+open_close_open.txt

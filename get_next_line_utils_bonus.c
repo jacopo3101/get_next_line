@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javellis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 09:59:19 by javellis          #+#    #+#             */
-/*   Updated: 2022/10/26 09:59:22 by javellis         ###   ########.fr       */
+/*   Created: 2022/11/02 14:47:54 by javellis          #+#    #+#             */
+/*   Updated: 2022/11/02 14:47:59 by javellis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 #include <stddef.h>
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "get_next_line_bonus.h"
 
 void	*ft_calloc(unsigned int nmemb, unsigned int size)
 {

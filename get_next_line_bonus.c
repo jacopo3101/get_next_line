@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javellis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 09:58:52 by javellis          #+#    #+#             */
-/*   Updated: 2022/10/26 09:58:55 by javellis         ###   ########.fr       */
+/*   Created: 2022/11/02 14:47:29 by javellis          #+#    #+#             */
+/*   Updated: 2022/11/02 14:47:31 by javellis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_line_builder(char *buf)
 {
@@ -110,29 +110,15 @@ char	*ft_read_buf(int fd, char *mem)
 
 char	*get_next_line(int fd)
 {
-	static char	*mem;
+	static char	*mem[1024];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE < 0)
 		return (0);
-	mem = ft_read_buf(fd, mem);
-	if (!mem)
-	{
+	mem[fd] = ft_read_buf(fd, mem[fd]);
+	if (!mem[fd])
 		return (NULL);
-	}
-	line = ft_line_builder(mem);
-	mem = ft_set_mem(mem);
+	line = ft_line_builder(mem[fd]);
+	mem[fd] = ft_set_mem(mem[fd]);
 	return (line);
 }
-/*
-int main()
-{
-	int fd = open("files/giant_line.txt", O_RDWR);
-	char *line = get_next_line(fd);
-	printf("%s", line);
-	//printf("\n-------------------------\n");
-	line = get_next_line(fd);
-	printf("%s", line);
-	
-	
-}*/
