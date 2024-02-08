@@ -1,4 +1,4 @@
-# Get_nwxt_line
+# Get_next_line
 
 ## Score
 ![project score](/assets/score.png)
